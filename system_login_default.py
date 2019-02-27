@@ -53,6 +53,12 @@ def selection_modules():
     speed_test = Button(select, text='Speed Test', font=('arial',9,'bold'), command = speed)
     speed_test.pack(side=TOP, padx=10, pady=10)
 
+    def code():
+        os.system("/opt/visual-studio-code/code '%f'")
+    
+    studio_code = Button(select, text='Studio Code', font=('arial',9,'bold'), command = code )
+    studio_code.pack(side=TOP, padx=10, pady=10)
+
     logout = Button(select, text="Logout", font=('arial',9,'bold'), command = logout_exit)
     logout.pack(side=BOTTOM, padx=10, pady=10)
 
