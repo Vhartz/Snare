@@ -41,10 +41,17 @@ def selection_modules():
     pkg_helper.pack(side=TOP, padx=10, pady=10)
 
     def arch_time():
-        os.system("")
+        os.system("hwclock --systohc --localtime")
 
     set_time = Button(select, text="Time Arch Update", font=('arial',9,'bold'), command = arch_time)
     set_time.pack(side=TOP, padx=10, pady=10)
+
+    #teste de internet
+    def speed():
+        os.system('speedtest')
+    
+    speed_test = Button(select, text='Speed Test', font=('arial',9,'bold'), command = speed)
+    speed_test.pack(side=TOP, padx=10, pady=10)
 
     logout = Button(select, text="Logout", font=('arial',9,'bold'), command = logout_exit)
     logout.pack(side=BOTTOM, padx=10, pady=10)
