@@ -68,8 +68,8 @@ def pkg_base():
             pct_enter = str(pkg_entrada.get())
             os.system('sudo apt remove %s -y'%(pct_enter))
 
-            pkg_arch_buton2 = Button(arch_pkg_window, text='Remover', command = remove)
-            pkg_arch_buton2.pack(side=TOP, padx=10, pady=10)
+        pkg_arch_buton2 = Button(arch_pkg_window, text='Remover', command = remove)
+        pkg_arch_buton2.pack(side=TOP, padx=10, pady=10)
 
         def search():
             pct_enter = str(pkg_entrada.get())
