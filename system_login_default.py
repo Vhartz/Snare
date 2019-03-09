@@ -7,6 +7,7 @@
 from tkinter import *
 from time import strftime as time
 import os
+import subprocess
 
 # função de janela de seleção
 def selection_modules():
@@ -88,11 +89,20 @@ def selection_modules():
         def gravar():
             first = str(dd_insert.get())
             second = str(dd_insertt.get())
-            os.system('sudo dd if=%s of=%s bs=4M status=progress' %(first,second))     
+
+            window_sub = Tk()
+            window_sub.title('Progresso')
+            #window_sub.geometry("200x200")
+            sub = subprocess.check_output('sudo dd if=%s of=%s bs=4M status=progress' %(first,second), shell = True)
+
+            lb = Label(window_sub, text=sub)
+            lb.pack(side=TOP, padx=10, pady=10)   
+
+            window_sub.mainloop()   
+                
 
         lbl2 = Button(window_dd, text='Gravar!', command = gravar)
         lbl2.pack(side=TOP, padx=10, pady=5)
-
 
         window_dd.mainloop()
                 
