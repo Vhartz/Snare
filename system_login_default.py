@@ -1,7 +1,8 @@
 #!/bin/usr/python
-"""author : Vitor Amorim 'Vhartz' <vhartzamorimg2@gmail.com>
-   version : 0.1
-   license : Mit License
+"""
+    author : Vitor Amorim 'Vhartz' <vhartzamorimg2@gmail.com>
+    version : 0.1
+    license : Mit License
 """
 from tkinter import *
 from time import strftime as time
@@ -11,7 +12,7 @@ import os
 def selection_modules():
     select = Tk()
     select.title("Home")
-    select.geometry("300x300")
+    select.geometry("300x400")
     select.resizable(False,False)
     #select.configure(background='')
 
@@ -52,13 +53,52 @@ def selection_modules():
     
     speed_test = Button(select, text='Speed Test', font=('arial',9,'bold'), command = speed)
     speed_test.pack(side=TOP, padx=10, pady=10)
-
+    #open studio code
     def code():
         os.system("/opt/visual-studio-code/code '%f'")
     
     studio_code = Button(select, text='Studio Code', font=('arial',9,'bold'), command = code )
     studio_code.pack(side=TOP, padx=10, pady=10)
+    #gravador de iso incializavel com comando dd
 
+    def dd_comand():
+        window_dd = Tk()
+        window_dd.title('Criação de ISO Inicializavel')
+        window_dd.geometry("300x200")
+        window_dd.resizable(False,False)
+
+        lbl0 = Label(window_dd, text='Insira o Caminho da ISO :', font='Times 11 bold ' )
+        lbl0.pack(side=TOP, padx=10, pady=5)
+        
+        dd_insert = Entry(window_dd, width=40)
+        dd_insert.pack(side=TOP, padx=10, pady=5)
+        
+        lblex1 = Label(window_dd, text='ex : /local/da/imagem.iso')
+        lblex1.pack(side=TOP, padx=5, pady=0)
+
+        lbl1 = Label(window_dd, text='Insira a Unidade a ser Gravada :', font='Times 11 bold ' )
+        lbl1.pack(side=TOP, padx=10, pady=5)
+        
+        dd_insertt = Entry(window_dd, width=40)
+        dd_insertt.pack(side=TOP, padx=10, pady=5)
+        
+        lblex2 = Label(window_dd, text='ex : /dev/sdX')
+        lblex2.pack(side=TOP, padx=5, pady=0)
+
+        def gravar():
+            first = str(dd_insert.get())
+            second = str(dd_insertt.get())
+            os.system('sudo dd if=%s of=%s bs=4M status=progress' %(first,second))     
+
+        lbl2 = Button(window_dd, text='Gravar!', command = gravar)
+        lbl2.pack(side=TOP, padx=10, pady=5)
+
+
+        window_dd.mainloop()
+                
+    comand_dd = Button(select, text='DD', font=('arial',9,'bold'), command = dd_comand)
+    comand_dd.pack(side=TOP, padx=10, pady=10)
+      
     logout = Button(select, text="Logout", font=('arial',9,'bold'), command = logout_exit)
     logout.pack(side=BOTTOM, padx=10, pady=10)
 
