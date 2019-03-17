@@ -14,8 +14,7 @@ def selection_modules():
     select.title("Home")
     select.geometry("300x400")
     select.resizable(False,False)
-    #select.configure(background='')
-
+    #select.configure(background='') 
     # exit
     def logout_exit():
         select.destroy()
@@ -47,7 +46,7 @@ def selection_modules():
     set_time = Button(select, text="Time Arch Update", font=('arial',9,'bold'), command = arch_time)
     set_time.pack(side=TOP, padx=10, pady=10)
 
-    #teste de internet
+    #internet test
     def speed():
         os.system('speedtest')
 
@@ -161,3 +160,5 @@ def iniciar():
     login_base.mainloop()
 
 iniciar()
+
+#####################-------------#################
