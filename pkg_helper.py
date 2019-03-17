@@ -1,3 +1,9 @@
+#!/urs/bin/python
+"""
+   author : Vitor Amorim 'Vhartz' <vhartzamorimg2@gmail.com>
+   version : 0.1
+   license : Mit License
+"""
 from tkinter import *
 import os
 
@@ -25,7 +31,6 @@ def pkg_base():
 
         pkg_arch_buton = Button(arch_pkg_window, text='Instalar', command = install)
         pkg_arch_buton.pack(side=TOP, padx=10, pady=10)
-
 
         def remove():
             pct_enter = str(pkg_entrada.get())
@@ -63,7 +68,6 @@ def pkg_base():
         pkg_arch_buton = Button(arch_pkg_window, text='Instalar', command = install)
         pkg_arch_buton.pack(side=TOP, padx=10, pady=10)
 
-
         def remove():
             pct_enter = str(pkg_entrada.get())
             os.system('sudo apt remove %s -y'%(pct_enter))
@@ -100,7 +104,6 @@ def pkg_base():
         pkg_arch_buton = Button(arch_pkg_window, text='Instalar', command = install)
         pkg_arch_buton.pack(side=TOP, padx=10, pady=10)
 
-
         def remove():
             pct_enter = str(pkg_entrada.get())
             os.system('sudo dnf remove %s -y'%(pct_enter))
@@ -114,8 +117,7 @@ def pkg_base():
 
         pkg_arch_buton3 = Button(arch_pkg_window, text='Procurar', command = search)
         pkg_arch_buton3.pack(side=TOP, padx=10, pady=10)
-    
-    
+      
     bt_fedora = Button(text='Fedora', command = pkg_fedora)
     bt_fedora.pack(side=TOP, padx=10, pady=10)
 
